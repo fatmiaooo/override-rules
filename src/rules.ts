@@ -3,6 +3,10 @@ import { PROXY_GROUPS } from "./constants";
 const baseRules = [
     `DST-PORT,22,${PROXY_GROUPS.SSH}`,
     `GEOIP,private,DIRECT,no-resolve`,
+    `RULE-SET,CustomReject,REJECT`,
+    `RULE-SET,CustomDirect,DIRECT`,
+    `RULE-SET,CustomProxy,${PROXY_GROUPS.SELECT}`,
+    `RULE-SET,CustomAI,${PROXY_GROUPS.AI_SERVICE}`,
     `RULE-SET,ADBlock,${PROXY_GROUPS.AD_BLOCK}`,
     `RULE-SET,AdditionalFilter,${PROXY_GROUPS.AD_BLOCK}`,
     `RULE-SET,SogouInput,${PROXY_GROUPS.SOGOU_INPUT}`,

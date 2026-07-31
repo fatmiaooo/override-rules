@@ -1,7 +1,42 @@
 import { CDN_URL } from "./constants";
 import type { RuleProvider } from "./types";
 
+const CUSTOM_RULESET_BASE_URL =
+    "https://raw.githubusercontent.com/fatmiaooo/override-rules/refs/heads/main/ruleset";
+
 export const ruleProviders: Record<string, RuleProvider> = {
+    CustomReject: {
+        type: "http",
+        behavior: "classical",
+        format: "text",
+        interval: 86400,
+        url: `${CUSTOM_RULESET_BASE_URL}/CustomReject.list`,
+        path: "./ruleset/CustomReject.list",
+    },
+    CustomDirect: {
+        type: "http",
+        behavior: "classical",
+        format: "text",
+        interval: 86400,
+        url: `${CUSTOM_RULESET_BASE_URL}/CustomDirect.list`,
+        path: "./ruleset/CustomDirect.list",
+    },
+    CustomProxy: {
+        type: "http",
+        behavior: "classical",
+        format: "text",
+        interval: 86400,
+        url: `${CUSTOM_RULESET_BASE_URL}/CustomProxy.list`,
+        path: "./ruleset/CustomProxy.list",
+    },
+    CustomAI: {
+        type: "http",
+        behavior: "classical",
+        format: "text",
+        interval: 86400,
+        url: `${CUSTOM_RULESET_BASE_URL}/CustomAI.list`,
+        path: "./ruleset/CustomAI.list",
+    },
     ADBlock: {
         type: "http",
         behavior: "domain",

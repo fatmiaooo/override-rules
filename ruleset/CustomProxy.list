@@ -1,0 +1,2 @@
+# 自定义代理规则。每行只填写匹配条件，不要添加末尾的策略组名称。
+DOMAIN,custom-proxy.invalid
