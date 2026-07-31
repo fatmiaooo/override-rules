@@ -17,6 +17,8 @@
 
 [点击访问 Forgejo 上的镜像](https://git.l3zc.com/powerfullz/override-rules)
 
+> 本 Fork 由 `fatmiaooo` 维护，保留上游项目署名，并增加个人自定义分流规则。
+
 ### AFF
 
 #### FlowerCloud
@@ -38,9 +40,11 @@
 > [!TIP]
 > Clash Party 不支持给脚本传入参数，如果需要传入参数，请使用集成的 Substore。
 
-1.  推荐直接使用 JS 动态覆写：`https://cdn.jsdelivr.net/gh/powerfullz/override-rules/convert.min.js`
+1.  推荐直接使用本 Fork 的 JS 动态覆写：`https://raw.githubusercontent.com/fatmiaooo/override-rules/refs/heads/preview/convert.min.js`
 2.  打开 Clash Party → 左侧「覆写」→ 粘贴上述链接导入。
 3.  打开「订阅管理」→ 目标订阅右上角三个点 → 「编辑信息」→ 选择该覆写脚本 → 保存。
+
+正式版本发布后，也可以使用 jsDelivr 地址：`https://cdn.jsdelivr.net/gh/fatmiaooo/override-rules/convert.min.js`。
 
 需要注意，Clash Party 在默认设置下还会接管 DNS 和 SNI（域名嗅探），需要手动在设置中关闭「控制 DNS 设置」和「控制域名嗅探」两个选项。
 
@@ -80,14 +84,36 @@
 想要国家/地区代理组自动选择延迟最低的节点，使用`grouptype=1`参数，在 Substore「脚本操作」处填入脚本链接：
 
 ```
-https://cdn.jsdelivr.net/gh/powerfullz/override-rules/convert.min.js#grouptype=1
+https://raw.githubusercontent.com/fatmiaooo/override-rules/refs/heads/preview/convert.min.js#grouptype=1
 ```
 
 如果想第一时间体验最新加入的 ~~Bug~~ 功能，可以使用 preview 分支的 Github Raw 链接：
 
 ```
-https://raw.githubusercontent.com/powerfullz/override-rules/refs/heads/preview/convert.min.js
+https://raw.githubusercontent.com/fatmiaooo/override-rules/refs/heads/preview/convert.min.js
 ```
+
+### 自定义分流规则
+
+本 Fork 提供四个可直接维护的 classical 规则集：
+
+| 文件 | 目标策略 |
+| --- | --- |
+| `ruleset/CustomProxy.list` | 选择代理 |
+| `ruleset/CustomDirect.list` | DIRECT |
+| `ruleset/CustomReject.list` | REJECT |
+| `ruleset/CustomAI.list` | AI服务 |
+
+每行填写一条不带目标策略的 Mihomo 规则，例如：
+
+```text
+DOMAIN,api.example.com
+DOMAIN-SUFFIX,example.com
+DOMAIN-KEYWORD,example
+IP-CIDR,192.0.2.0/24,no-resolve
+```
+
+修改对应文件并提交到 `main` 后，在 Clash 中手动更新规则集或重载配置即可，无需重新构建脚本。
 
 ### 关于 DNS 泄露的说明
 
