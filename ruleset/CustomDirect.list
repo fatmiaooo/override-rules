@@ -1,5 +1,4 @@
 # 自定义直连规则。每行只填写匹配条件，不要添加末尾的 DIRECT。
-DOMAIN-SUFFIX,linux.do
 DOMAIN-SUFFIX,portal101.cn
 DOMAIN-SUFFIX,javasec.org
 DOMAIN-SUFFIX,emby.cam
