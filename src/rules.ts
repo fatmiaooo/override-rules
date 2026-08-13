@@ -33,7 +33,7 @@ const baseRules = [
     `RULE-SET,TikTok,${PROXY_GROUPS.TIKTOK}`,
     `RULE-SET,SteamFix,DIRECT`,
     `RULE-SET,GoogleFCM,DIRECT`,
-    `GEOSITE,google-play@cn,DIRECT`,
+    `GEOSITE,google-play@cn,${PROXY_GROUPS.GOOGLE}`,
     `GEOSITE,microsoft@cn,DIRECT`,
     `GEOSITE,apple,${PROXY_GROUPS.APPLE}`,
     `GEOSITE,microsoft,${PROXY_GROUPS.MICROSOFT}`,
